@@ -10,8 +10,8 @@ app.use(express.json());
 app.use(express.static('public'));
 
 // API 配置
-const API_KEY = 'b29cb385-ec42-41cd-b898-fced712781b5';
-const API_URL = 'https://ark.cn-beijing.volces.com/api/v3/chat/completions';
+const API_KEY = process.env.API_KEY;
+const API_URL = process.env.API_URL;
 
 // 系统提示词
 const SYSTEM_PROMPT = `你是一位专业的生活教练，你的目标是通过对话帮助用户成长。

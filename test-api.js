@@ -1,8 +1,8 @@
 import fetch from 'node-fetch';
 
 // API 配置
-const API_KEY = 'b29cb385-ec42-41cd-b898-fced712781b5';
-const API_URL = 'https://ark.cn-beijing.volces.com/api/v3/chat/completions';
+const API_KEY = process.env.API_KEY;
+const API_URL = process.env.API_URL;
 
 // 测试消息
 const testMessage = "你好";
