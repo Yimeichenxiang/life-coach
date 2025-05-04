@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import fetch from 'node-fetch';
 
 // API 配置
