@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "node server/server.js",
-    "build": "npm install"
+    "build": "npm install && mkdir -p chats"
   },
   "keywords": [],
   "author": "",

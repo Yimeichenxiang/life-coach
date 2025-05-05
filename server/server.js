@@ -24,7 +24,7 @@ const SYSTEM_PROMPT = `你是一位专业的生活教练，你的目标是通过
 5. 注重长期发展和持续进步`;
 
 // 创建对话记录目录
-const CHAT_DIR = './chats';
+const CHAT_DIR = path.join(process.cwd(), 'chats');
 await fs.mkdir(CHAT_DIR, { recursive: true });
 
 // 获取当前日期作为文件名
@@ -130,15 +130,10 @@ app.post('/chat', async (req, res) => {
     }
 });
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-    console.log(`服务器运行在 http://localhost:${PORT}`);
+    console.log(`服务器运行在端口 ${PORT}`);
 }).on('error', (error) => {
-    if (error.code === 'EADDRINUSE') {
-        console.error(`端口 ${PORT} 已被占用，请先终止占用该端口的进程，或者使用其他端口`);
-        process.exit(1);
-    } else {
-        console.error('服务器启动错误:', error);
-        process.exit(1);
-    }
+    console.error('服务器启动错误:', error);
+    process.exit(1);
 });
